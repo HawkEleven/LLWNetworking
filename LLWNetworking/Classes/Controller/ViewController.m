@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "TestAPIManager.h"
 
-@interface ViewController () <BaseAPIManagerCallBackDelegate>
+@interface ViewController () <BaseAPIManagerCallBackDelegate,APIManagerParamSource>
 
 @property (nonatomic, strong) TestAPIManager *testAPIManager;
 
@@ -35,6 +35,17 @@
     [self.testAPIManager startRequest];
 }
 
+#pragma mark - APIManagerParamSource
+- (NSDictionary *)paramsForApi:(BaseAPIManager *)manager {
+    NSDictionary *params = @{};
+    if (manager == self.testAPIManager) {
+        params = @{
+                   @"id":@"1"
+                   };
+    }
+    return params;
+}
+
 #pragma mark - APIManagerDelegate
 - (void)managerCallAPIDidSuccess:(BaseAPIManager *)manager {
     if (manager == self.testAPIManager) {
@@ -51,8 +62,8 @@
 - (TestAPIManager *)testAPIManager {
     if (!_testAPIManager) {
         _testAPIManager = [[TestAPIManager alloc] init];
-        
         _testAPIManager.delegate = self;
+        _testAPIManager.paramSource = self;
     }
     return _testAPIManager;
 }

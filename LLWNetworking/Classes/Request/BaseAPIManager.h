@@ -18,6 +18,14 @@
 
 @end
 
+/** 让manager能够获取调用API所需要的数据 */
+@protocol APIManagerParamSource <NSObject>
+
+@required
+- (NSDictionary *)paramsForApi:(BaseAPIManager *)manager;
+
+@end
+
 /** 返回数据转换 */
 @protocol APIManagerDataReformer <NSObject>
 
@@ -39,7 +47,7 @@ typedef NS_ENUM(NSInteger, APIRequestType) {
 @required
 - (NSString *)requestUrl;
 - (APIRequestType)requestType;
-- (NSDictionary *)requestParams;
+- (NSDictionary *)requestWithParams:(NSDictionary *)params;
 - (BOOL)shouldCache;
 
 @end
@@ -47,6 +55,7 @@ typedef NS_ENUM(NSInteger, APIRequestType) {
 @interface BaseAPIManager : NSObject
 
 @property (nonatomic, weak) id<BaseAPIManagerCallBackDelegate> delegate;
+@property (nonatomic, weak) id<APIManagerParamSource> paramSource;
 @property (nonatomic, weak) id<APIManagerDataReformer> reformer;
 @property (nonatomic, weak) NSObject<APIManager> *child;
 @property (nonatomic, strong) id fetchedData;

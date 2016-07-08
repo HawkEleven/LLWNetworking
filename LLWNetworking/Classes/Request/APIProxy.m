@@ -12,9 +12,6 @@
 
 static NSString * const HttpCache = @"HttpCache";
 
-static NSString * const kAXApiProxyDispatchItemKeyCallbackSuccess = @"kAXApiProxyDispatchItemCallbackSuccess";
-static NSString * const kAXApiProxyDispatchItemKeyCallbackFail = @"kAXApiProxyDispatchItemCallbackFail";
-
 typedef NS_ENUM(NSInteger, RequestType) {
     RequestTypeGet,
     RequestTypePost,

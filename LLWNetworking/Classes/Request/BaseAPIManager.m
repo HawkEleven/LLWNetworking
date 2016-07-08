@@ -49,42 +49,48 @@
 
 #pragma mark - calling api
 - (void)startRequest {
+    NSDictionary *params = [self.paramSource paramsForApi:self];
+    [self startRequestWithParams:params];
+}
+
+- (void)startRequestWithParams:(NSDictionary *)params {
+    NSDictionary *apiParams = [self.child requestWithParams:params];
     NSInteger requestId = 0;
-        switch (self.child.requestType) {
-            case APIRequestTypeGet:
-            {
-               requestId = [[APIProxy sharedInstance] callGETWithUrlStr:self.child.requestUrl params:self.child.requestParams isCache:self.child.shouldCache success:^(NSDictionary *responseDictory) {
-                    NSLog(@"response:%@",responseDictory);
-                    id model = [self.reformer reformerWithData:responseDictory];
-                    self.fetchedData = model;
-                    // 回调
-                    if ([self.delegate respondsToSelector:@selector(managerCallAPIDidSuccess:)]) {
-                        [self.delegate managerCallAPIDidSuccess:self];
-                    }
-                    
-                } fail:^(NSString *error) {
-                    
-                }];
-            }
-                break;
-            case APIRequestTypePost:
-            {
-                requestId = [[APIProxy sharedInstance] callPOSTWithUrlStr:self.child.requestUrl params:self.child.requestParams isCache:self.child.shouldCache success:^(NSDictionary *responseDictory) {
-                    NSLog(@"response:%@",responseDictory);
-                    id model = [self.reformer reformerWithData:responseDictory];
-                    self.fetchedData = model;
-                    // 回调
-                    if ([self.delegate respondsToSelector:@selector(managerCallAPIDidSuccess:)]) {
-                        [self.delegate managerCallAPIDidSuccess:self];
-                    }
-                } fail:^(NSString *error) {
-                    
-                }];
-            }
-                break;
-            default:
-                break;
+    switch (self.child.requestType) {
+        case APIRequestTypeGet:
+        {
+            requestId = [[APIProxy sharedInstance] callGETWithUrlStr:self.child.requestUrl params:apiParams isCache:self.child.shouldCache success:^(NSDictionary *responseDictory) {
+                NSLog(@"response:%@",responseDictory);
+                id model = [self.reformer reformerWithData:responseDictory];
+                self.fetchedData = model;
+                // 回调
+                if ([self.delegate respondsToSelector:@selector(managerCallAPIDidSuccess:)]) {
+                    [self.delegate managerCallAPIDidSuccess:self];
+                }
+                
+            } fail:^(NSString *error) {
+                
+            }];
         }
+            break;
+        case APIRequestTypePost:
+        {
+            requestId = [[APIProxy sharedInstance] callPOSTWithUrlStr:self.child.requestUrl params:apiParams isCache:self.child.shouldCache success:^(NSDictionary *responseDictory) {
+                NSLog(@"response:%@",responseDictory);
+                id model = [self.reformer reformerWithData:responseDictory];
+                self.fetchedData = model;
+                // 回调
+                if ([self.delegate respondsToSelector:@selector(managerCallAPIDidSuccess:)]) {
+                    [self.delegate managerCallAPIDidSuccess:self];
+                }
+            } fail:^(NSString *error) {
+                
+            }];
+        }
+            break;
+        default:
+            break;
+    }
     [self.requestIdList addObject:@(requestId)];
 }
 

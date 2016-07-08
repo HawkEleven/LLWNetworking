@@ -26,6 +26,7 @@
 
 #pragma mark - APIManager
 - (NSString *)requestUrl {
+//    return kTestUrl;
     return @"http://api.mishi.cn/index/goods/home/?p-pv=1.0&p-rtType=json_orig_result&p-apiv=1.0&city=%E6%B7%B1%E5%9C%B3%E5%B8%82&cityCode=0755&currentPage=1&lat=22.58055406301817&lng=113.8994404578979&p-apiv=1.0&pageSize=10&sortType=1";
 }
 
@@ -33,10 +34,13 @@
     return APIRequestTypeGet;
 }
 
-- (NSDictionary *)requestParams {
-    NSDictionary *params = @{@"PageIndex":[NSString stringWithFormat:@"%zi",self.pageNum],
-                             @"PageSize":@"10"};
-    return params;
+- (NSDictionary *)requestWithParams:(NSDictionary *)params {
+    NSDictionary *apiParams = @{
+                                @"PageIndex":[NSString stringWithFormat:@"%zi",self.pageNum],
+                                @"PageSize":@"10",
+//                                @"id":params[@"id"]
+                                };
+    return apiParams;
 }
 
 - (BOOL)shouldCache {

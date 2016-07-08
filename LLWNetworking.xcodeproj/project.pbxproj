@@ -53,6 +53,8 @@
 		F41763281D2E582A0088B1A0 /* BaseAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseAPIManager.m; path = LLWNetworking/Classes/Request/BaseAPIManager.m; sourceTree = SOURCE_ROOT; };
 		F417632B1D2E58390088B1A0 /* TestAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAPIManager.h; sourceTree = "<group>"; };
 		F417632C1D2E58390088B1A0 /* TestAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAPIManager.m; sourceTree = "<group>"; };
+		F42E27421D2F54E4007135CF /* Interface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Interface.h; sourceTree = "<group>"; };
+		F42E27431D2F5660007135CF /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 		F417631A1D2E57A60088B1A0 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F42E27411D2F54C0007135CF /* Global */,
 				F417631F1D2E57A60088B1A0 /* Request */,
 				F417631B1D2E57A60088B1A0 /* Controller */,
 				F417631E1D2E57A60088B1A0 /* Model */,
@@ -213,6 +216,15 @@
 			);
 			name = Other;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		F42E27411D2F54C0007135CF /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				F42E27421D2F54E4007135CF /* Interface.h */,
+				F42E27431D2F5660007135CF /* PrefixHeader.pch */,
+			);
+			path = Global;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -502,6 +514,7 @@
 			baseConfigurationReference = 1BFB4E107C9181F3226B1E46 /* Pods-LLWNetworking.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "/Users/dalong/Desktop/git/项目/LLWNetworking/LLWNetworking/Classes/Global/PrefixHeader.pch";
 				INFOPLIST_FILE = LLWNetworking/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dalong.LLWNetworking;
@@ -514,6 +527,7 @@
 			baseConfigurationReference = 5CC77CE8F95D98659DF29696 /* Pods-LLWNetworking.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "/Users/dalong/Desktop/git/项目/LLWNetworking/LLWNetworking/Classes/Global/PrefixHeader.pch";
 				INFOPLIST_FILE = LLWNetworking/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dalong.LLWNetworking;
