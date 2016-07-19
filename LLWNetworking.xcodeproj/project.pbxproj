@@ -15,9 +15,9 @@
 		F41763051D2E569F0088B1A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F41763031D2E569F0088B1A0 /* LaunchScreen.storyboard */; };
 		F41763101D2E569F0088B1A0 /* LLWNetworkingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F417630F1D2E569F0088B1A0 /* LLWNetworkingUITests.m */; };
 		F41763231D2E57A60088B1A0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F417631D1D2E57A60088B1A0 /* ViewController.m */; };
-		F41763291D2E582A0088B1A0 /* APIProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F41763261D2E582A0088B1A0 /* APIProxy.m */; };
-		F417632A1D2E582A0088B1A0 /* BaseAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F41763281D2E582A0088B1A0 /* BaseAPIManager.m */; };
 		F417632D1D2E58390088B1A0 /* TestAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F417632C1D2E58390088B1A0 /* TestAPIManager.m */; };
+		F42E27491D2F833B007135CF /* APIProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F42E27461D2F833B007135CF /* APIProxy.m */; };
+		F42E274A1D2F833B007135CF /* BaseAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F42E27481D2F833B007135CF /* BaseAPIManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,14 +47,15 @@
 		F41763111D2E569F0088B1A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F417631C1D2E57A60088B1A0 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		F417631D1D2E57A60088B1A0 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		F41763251D2E582A0088B1A0 /* APIProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIProxy.h; path = ../APIProxy.h; sourceTree = "<group>"; };
-		F41763261D2E582A0088B1A0 /* APIProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIProxy.m; path = ../APIProxy.m; sourceTree = "<group>"; };
-		F41763271D2E582A0088B1A0 /* BaseAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseAPIManager.h; path = LLWNetworking/Classes/Request/BaseAPIManager.h; sourceTree = SOURCE_ROOT; };
-		F41763281D2E582A0088B1A0 /* BaseAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseAPIManager.m; path = LLWNetworking/Classes/Request/BaseAPIManager.m; sourceTree = SOURCE_ROOT; };
 		F417632B1D2E58390088B1A0 /* TestAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAPIManager.h; sourceTree = "<group>"; };
 		F417632C1D2E58390088B1A0 /* TestAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAPIManager.m; sourceTree = "<group>"; };
 		F42E27421D2F54E4007135CF /* Interface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Interface.h; sourceTree = "<group>"; };
 		F42E27431D2F5660007135CF /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		F42E27451D2F833B007135CF /* APIProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIProxy.h; sourceTree = "<group>"; };
+		F42E27461D2F833B007135CF /* APIProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIProxy.m; sourceTree = "<group>"; };
+		F42E27471D2F833B007135CF /* BaseAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAPIManager.h; sourceTree = "<group>"; };
+		F42E27481D2F833B007135CF /* BaseAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseAPIManager.m; sourceTree = "<group>"; };
+		F4B0BA811D3DFBFC00AB637B /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,7 +172,7 @@
 		F417631F1D2E57A60088B1A0 /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				F41763211D2E57A60088B1A0 /* BaseAPIManager */,
+				F42E27441D2F833B007135CF /* BaseAPIManager */,
 				F41763201D2E57A60088B1A0 /* APIManager */,
 			);
 			path = Request;
@@ -184,17 +185,6 @@
 				F417632C1D2E58390088B1A0 /* TestAPIManager.m */,
 			);
 			path = APIManager;
-			sourceTree = "<group>";
-		};
-		F41763211D2E57A60088B1A0 /* BaseAPIManager */ = {
-			isa = PBXGroup;
-			children = (
-				F41763271D2E582A0088B1A0 /* BaseAPIManager.h */,
-				F41763281D2E582A0088B1A0 /* BaseAPIManager.m */,
-				F41763251D2E582A0088B1A0 /* APIProxy.h */,
-				F41763261D2E582A0088B1A0 /* APIProxy.m */,
-			);
-			path = BaseAPIManager;
 			sourceTree = "<group>";
 		};
 		F41763221D2E57A60088B1A0 /* View */ = {
@@ -223,8 +213,20 @@
 			children = (
 				F42E27421D2F54E4007135CF /* Interface.h */,
 				F42E27431D2F5660007135CF /* PrefixHeader.pch */,
+				F4B0BA811D3DFBFC00AB637B /* Header.h */,
 			);
 			path = Global;
+			sourceTree = "<group>";
+		};
+		F42E27441D2F833B007135CF /* BaseAPIManager */ = {
+			isa = PBXGroup;
+			children = (
+				F42E27451D2F833B007135CF /* APIProxy.h */,
+				F42E27461D2F833B007135CF /* APIProxy.m */,
+				F42E27471D2F833B007135CF /* BaseAPIManager.h */,
+				F42E27481D2F833B007135CF /* BaseAPIManager.m */,
+			);
+			path = BaseAPIManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,9 +381,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F417632D1D2E58390088B1A0 /* TestAPIManager.m in Sources */,
-				F417632A1D2E582A0088B1A0 /* BaseAPIManager.m in Sources */,
+				F42E27491D2F833B007135CF /* APIProxy.m in Sources */,
+				F42E274A1D2F833B007135CF /* BaseAPIManager.m in Sources */,
 				F41762FA1D2E569F0088B1A0 /* AppDelegate.m in Sources */,
-				F41763291D2E582A0088B1A0 /* APIProxy.m in Sources */,
 				F41763231D2E57A60088B1A0 /* ViewController.m in Sources */,
 				F41762F71D2E569F0088B1A0 /* main.m in Sources */,
 			);
@@ -514,8 +516,10 @@
 			baseConfigurationReference = 1BFB4E107C9181F3226B1E46 /* Pods-LLWNetworking.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				GCC_PREFIX_HEADER = "/Users/dalong/Desktop/git/项目/LLWNetworking/LLWNetworking/Classes/Global/PrefixHeader.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/LLWNetworking/Classes/Global/PrefixHeader.pch";
 				INFOPLIST_FILE = LLWNetworking/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dalong.LLWNetworking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -527,8 +531,10 @@
 			baseConfigurationReference = 5CC77CE8F95D98659DF29696 /* Pods-LLWNetworking.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				GCC_PREFIX_HEADER = "/Users/dalong/Desktop/git/项目/LLWNetworking/LLWNetworking/Classes/Global/PrefixHeader.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/LLWNetworking/Classes/Global/PrefixHeader.pch";
 				INFOPLIST_FILE = LLWNetworking/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dalong.LLWNetworking;
 				PRODUCT_NAME = "$(TARGET_NAME)";

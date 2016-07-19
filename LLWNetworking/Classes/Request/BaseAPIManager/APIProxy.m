@@ -10,6 +10,8 @@
 #import "AFNetworking.h"
 #import <YYCache/YYCache.h>
 
+
+
 static NSString * const HttpCache = @"HttpCache";
 
 typedef NS_ENUM(NSInteger, RequestType) {
@@ -133,12 +135,12 @@ typedef NS_ENUM(NSInteger, RequestType) {
                         success(responseDictory);
                     }
                 } failure:^(NSString *error) {
-                    
+                    if (failure) {
+                        failure(error);
+                    }
                 }];
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                if (failure) {
-                    failure(@"出问题了");
-                }
+                ALERT_MSG(@"网络连接错误");
             }];
         }
             break;
@@ -152,12 +154,12 @@ typedef NS_ENUM(NSInteger, RequestType) {
                         success(responseDictory);
                     }
                 } failure:^(NSString *error) {
-                    
+                    if (failure) {
+                        failure(error);
+                    }
                 }];
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                if (failure) {
-                    failure(@"出问题了");
-                }
+                ALERT_MSG(@"网络连接错误");
             }];
         }
             break;
@@ -239,7 +241,7 @@ typedef NS_ENUM(NSInteger, RequestType) {
 }
 
 #pragma mark  网络判断
--(BOOL)requestBeforeJudgeConnect {
+- (BOOL)requestBeforeJudgeConnect {
     struct sockaddr zeroAddress;
     bzero(&zeroAddress, sizeof(zeroAddress));
     zeroAddress.sa_len = sizeof(zeroAddress);
@@ -269,8 +271,14 @@ typedef NS_ENUM(NSInteger, RequestType) {
     // 判断是否为字典
     if ([myResult isKindOfClass:[NSDictionary class]]) {
         NSDictionary *requestDic = (NSDictionary *)myResult;
-        if (success) {
-            success(requestDic);
+        if ([requestDic[@"errCode"] isEqualToNumber:@0]) { // 根据后台返回信息处理
+            if (success) {
+                success(requestDic);
+            }
+        } else {
+            if (failure) {
+                failure(requestDic[@"errMsg"]);
+            }
         }
     }
 }

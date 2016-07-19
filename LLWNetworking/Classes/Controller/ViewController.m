@@ -46,7 +46,7 @@
     return params;
 }
 
-#pragma mark - APIManagerDelegate
+#pragma mark - BaseAPIManagerCallBackDelegate
 - (void)managerCallAPIDidSuccess:(BaseAPIManager *)manager {
     if (manager == self.testAPIManager) {
         NSLog(@"model:%@",manager.fetchedData);
@@ -54,7 +54,9 @@
 }
 
 - (void)managerCallAPIDidFailed:(BaseAPIManager *)manager {
-    
+    if (manager == self.testAPIManager) {
+        NSLog(@"error:%@",manager.fetchedData);
+    }
 }
 
 #pragma mark - =====getters and setters=====

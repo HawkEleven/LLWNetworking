@@ -69,7 +69,10 @@
                 }
                 
             } fail:^(NSString *error) {
-                
+                self.fetchedData = error;
+                if ([self.delegate respondsToSelector:@selector(managerCallAPIDidFailed:)]) {
+                    [self.delegate managerCallAPIDidFailed:self];
+                }
             }];
         }
             break;
