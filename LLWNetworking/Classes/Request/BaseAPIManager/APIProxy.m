@@ -116,7 +116,7 @@ typedef NS_ENUM(NSInteger, RequestType) {
     // 网络判断
     if (![self requestBeforeJudgeConnect]) {
         if (failure) {
-            failure(@"没有网络");
+            failure(NETWORKERROR);
             NSLog(@"没有网络");
         }
         return nil;
@@ -140,7 +140,9 @@ typedef NS_ENUM(NSInteger, RequestType) {
                     }
                 }];
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                ALERT_MSG(@"网络连接错误");
+                if (failure) {
+                    failure(NETWORKERROR);
+                }
             }];
         }
             break;
@@ -159,7 +161,9 @@ typedef NS_ENUM(NSInteger, RequestType) {
                     }
                 }];
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                ALERT_MSG(@"网络连接错误");
+                if (failure) {
+                    failure(NETWORKERROR);
+                }
             }];
         }
             break;

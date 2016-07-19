@@ -55,6 +55,7 @@
 
 - (void)managerCallAPIDidFailed:(BaseAPIManager *)manager {
     if (manager == self.testAPIManager) {
+        ALERT_MSG(manager.fetchedData);
         NSLog(@"error:%@",manager.fetchedData);
     }
 }
